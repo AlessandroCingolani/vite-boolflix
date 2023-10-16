@@ -7,7 +7,8 @@ export default {
   },
   data(){
     return{
-      store
+      store,
+      rating:[]
     }
   },
   methods:{
@@ -20,7 +21,8 @@ export default {
       const stars = Math.floor((rating - 1) / 2) + 1;
 
       return stars;
-    }
+    },
+
   }
 }
 </script>
@@ -42,19 +44,18 @@ export default {
           <h6 v-if="cardObj.original_title">Titolo originale:	{{ cardObj.original_title }}</h6>
           <h6 v-else>Titolo originale	:	{{ cardObj.original_name }}</h6>
 
-          <img v-if="cardObj.original_language.includes('en')" src="/public/img/en.png" alt="en">
-          <img v-if="cardObj.original_language.includes('it')" src="/public/img/it.png" alt="it">
+          <img class="flag" v-if="cardObj.original_language.includes('en')" src="/public/img/en.png" alt="en">
+          <img class="flag" v-if="cardObj.original_language.includes('it')" src="/public/img/it.png" alt="it">
           <p> {{ checkLanguage(cardObj) }}</p>
           
-          <span>
-            Voto:
-            <i class="fa-regular fa-star"></i>
-            <i class="fa-regular fa-star"></i>
-            <i class="fa-regular fa-star"></i>
-            <i class="fa-regular fa-star"></i>
-            <i class="fa-regular fa-star"></i>
-            {{ calcRating(cardObj.vote_average)  }}
-          </span>
+
+            <span>
+              Voto:
+              <i v-for="n in 5" :key="n" 
+              :class="{'fa-solid fa-star': n <= calcRating(cardObj.vote_average), 'fa-regular fa-star': n > calcRating(cardObj.vote_average)}">
+              </i>  
+            </span>
+
 
         </div>
   
@@ -70,43 +71,48 @@ export default {
 <style lang="scss" scoped>
 
 
-img {
+.flag  {
     width: 30px;
   }
-  .card{
-  height: 100%;
-  position: relative;
-  overflow: hidden;
-
-  .poster{
-    img{
-      height: 100%;
-      width: 100%;
-      object-fit: cover;
+  .col-3 {
+    padding: 10px;
+    .card{
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+  
+    .poster{
+      img{
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+      }
+    }
+    .hover-box{
+      position: absolute;
+      cursor: pointer;
+      opacity: 0;
+      top: 0;
+      bottom:0;
+      right: 0;
+      left: 0;
+      color: white;
+      background-color: rgba(0, 0, 0, 0.897);
+      padding: 16px;
+      
+  
+      &:hover{
+        opacity: 1;
+      }
+      
+     
+      .overview {
+        height: 50%;
+        overflow-y: auto;
+      }
     }
   }
-  .hover-box{
-    position: absolute;
-    cursor: pointer;
-    opacity: 0;
-    top: 0;
-    bottom:0;
-    color: white;
-    background-color: rgba(0, 0, 0, 0.897);
-    padding: 16px;
-    
-
-    &:hover{
-      opacity: 1;
-    }
-
-   
-    .overview {
-      height: 50%;
-      overflow-y: auto;
-    }
   }
-}
   
 
 </style>
