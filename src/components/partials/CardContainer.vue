@@ -1,63 +1,34 @@
 <script>
 import { store } from '../../data/store';
-
+import Card from './Card.vue';
 export default {
   name: "CardContainer",
+  components:{
+    Card
+  },
   data() {
     return {
       store
     }
   },
-  methods:{
-    checkLanguage(value){
-      if (value.original_language != 'en' && value.original_language != 'it'){
-        return value.original_language
-      }
-    },
-    calcRating(rating){
-      const stars = Math.floor((rating - 1) / 2) + 1;
 
-      return stars;
-    }
-  }
 }
 </script>
 
 <template>
   <div class="container">
-    <ul v-if="store.listFilm.length > 0">
-      <h1>film</h1>
-      <li v-for="film in store.listFilm" :key="film.id">
-        <h3>{{ film.title }}</h3>
-        <h4>{{ film.original_title }}</h4> 
-        <div class="poster">
-          <img :src="`${store.imgPath}${film.poster_path}`" alt="">
-
-        </div>
-        <img v-if="film.original_language.includes('en')" src="/public/img/en.png" alt="en">
-        <img v-if="film.original_language.includes('it')" src="/public/img/it.png" alt="it">
-        <p> {{ checkLanguage(film) }}</p>
-        <p>{{ calcRating(film.vote_average) }}</p>
-      </li>
-    </ul>
-
-
-    <ul>
-      <h1 v-if="store.listSeries.length > 0">Series</h1>
-      <li v-for="series in store.listSeries" :key="series.id">
-        <h3>{{ series.name }}</h3>
-        <h4>{{ series.original_name }}</h4> 
-        <div class="poster">
-          <img :src="`${store.imgPath}${series.poster_path}`" alt="">
-        </div>
-        <img v-if="series.original_language.includes('en')" src="/public/img/en.png" alt="en">
-        <img v-if="series.original_language.includes('it')" src="/public/img/it.png" alt="it">
-        <p> {{ checkLanguage(series) }}</p>
-        <p>{{ calcRating(series.vote_average)  }}</p>
-      </li>
-    </ul>
-
-
+    <div v-if="store.listFilm.length > 0" class="film">
+      <h1>Film</h1>
+      <div class="row">
+        <Card v-for="card in store.listFilm" :key="card.id" :cardObj="card"/>
+      </div>
+    </div>
+    <div v-if="store.listSeries.length > 0" class="series">
+      <h1>Series</h1>
+      <div class="row">
+        <Card v-for="card in store.listSeries" :key="card.id" :cardObj="card"/>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -71,6 +42,6 @@ export default {
   .poster img {
     width: 300px;
   }
-
+ 
 
 </style>
