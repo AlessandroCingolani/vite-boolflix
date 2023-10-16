@@ -13,7 +13,7 @@ export default {
 
 <template>
   <div class="input-group">
-    <input  v-model.trim="store.research" type="text" class="form-control" placeholder="Cerca un Film" >
+    <input  v-model.trim="store.searchFilm" type="text" class="form-control" placeholder="Cerca un Film">
   </div>
 </template>
 

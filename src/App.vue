@@ -17,7 +17,7 @@
     },
     methods:{
       getFilm(){
-        axios.get(`${store.apiUrl}/3/search/movie?${store.api_key}}`,{
+        axios.get(`${store.apiUrl}/3/search/movie?${store.api_key}`,{
           params:{
             query:store.searchFilm
           }
