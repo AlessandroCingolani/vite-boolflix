@@ -24,16 +24,36 @@
         })
         .then(result =>{
           store.listFilm = result.data.results
+          this.getSeries()
+        })
+        .catch(error => {
+          console.log(error);
+        })
+      },
+
+      getSeries(){
+        axios.get(`${store.apiUrl}/3/search/tv?${store.api_key}&language=it_IT`,{
+          params:{
+            query:store.search
+          }
+        })
+        .then(result =>{
+          store.listSeries = result.data.results
+          console.log(store.listSeries);
         })
         .catch(error => {
           console.log(error);
         })
       }
     },
+
     mounted(){
-      this.getFilm()
-    }
+      this.getFilm(),
+      this.getSeries()
+    },
+
   }
+
 
   </script>
 <template>
