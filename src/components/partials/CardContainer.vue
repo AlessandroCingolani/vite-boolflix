@@ -13,6 +13,11 @@ export default {
       if (value.original_language != 'en' && value.original_language != 'it'){
         return value.original_language
       }
+    },
+    calcRating(rating){
+      const stars = Math.floor((rating - 1) / 2) + 1;
+
+      return stars;
     }
   }
 }
@@ -32,7 +37,7 @@ export default {
         <img v-if="film.original_language.includes('en')" src="/public/img/en.png" alt="en">
         <img v-if="film.original_language.includes('it')" src="/public/img/it.png" alt="it">
         <p> {{ checkLanguage(film) }}</p>
-        <p>{{ film.vote_average }}</p>
+        <p>{{ calcRating(film.vote_average) }}</p>
       </li>
     </ul>
 
@@ -48,7 +53,7 @@ export default {
         <img v-if="series.original_language.includes('en')" src="/public/img/en.png" alt="en">
         <img v-if="series.original_language.includes('it')" src="/public/img/it.png" alt="it">
         <p> {{ checkLanguage(series) }}</p>
-        <p>{{ series.vote_average }}</p>
+        <p>{{ calcRating(series.vote_average)  }}</p>
       </li>
     </ul>
 
