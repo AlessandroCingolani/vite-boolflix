@@ -39,7 +39,6 @@
         })
         .then(result =>{
           store.listSeries = result.data.results
-          console.log(store.listSeries);
         })
         .catch(error => {
           console.log(error);

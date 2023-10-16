@@ -25,23 +25,34 @@ export default {
       <li v-for="film in store.listFilm" :key="film.id">
         <h3>{{ film.title }}</h3>
         <h4>{{ film.original_title }}</h4> 
+        <div class="poster">
+          <img :src="`${store.imgPath}${film.poster_path}`" alt="">
+
+        </div>
         <img v-if="film.original_language.includes('en')" src="/public/img/en.png" alt="en">
         <img v-if="film.original_language.includes('it')" src="/public/img/it.png" alt="it">
         <p> {{ checkLanguage(film) }}</p>
         <p>{{ film.vote_average }}</p>
       </li>
     </ul>
+
+
     <ul>
       <h1 v-if="store.listSeries.length > 0">Series</h1>
       <li v-for="series in store.listSeries" :key="series.id">
         <h3>{{ series.name }}</h3>
         <h4>{{ series.original_name }}</h4> 
+        <div class="poster">
+          <img :src="`${store.imgPath}${series.poster_path}`" alt="">
+        </div>
         <img v-if="series.original_language.includes('en')" src="/public/img/en.png" alt="en">
         <img v-if="series.original_language.includes('it')" src="/public/img/it.png" alt="it">
         <p> {{ checkLanguage(series) }}</p>
         <p>{{ series.vote_average }}</p>
       </li>
     </ul>
+
+
   </div>
 </template>
 
@@ -50,6 +61,10 @@ export default {
 
   img {
     width: 30px;
+  }
+
+  .poster img {
+    width: 300px;
   }
 
 
