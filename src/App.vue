@@ -38,7 +38,7 @@
 
   </script>
 <template>
-  <Header @searchFilm="getFilm" />
+  <Header @researchFilm="getFilm" />
   <Main/>
 </template>
 

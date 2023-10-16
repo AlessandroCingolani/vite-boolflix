@@ -1,13 +1,17 @@
 <script>
+import CardContainer from './partials/CardContainer.vue';
 export default {
   name:'Main',
+  components:{
+    CardContainer
+  }
 }
 </script>
 
 
 <template>
   <main>
-    <h2>main</h2>
+    <CardContainer/>
   </main>
 </template>
 
