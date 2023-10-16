@@ -23,8 +23,7 @@
           }
         })
         .then(result =>{
-          store.searchFilm = result.data.results
-          console.log(store.searchFilm);
+          store.listFilm = result.data.results
         })
         .catch(error => {
           console.log(error);

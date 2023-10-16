@@ -14,7 +14,7 @@ export default {
 <template>
   <div class="container">
     <ul>
-      <li v-for="film in store.searchFilm" :key="film.id">
+      <li v-for="film in store.listFilm" :key="film.id">
         <h3>{{ film.title }}</h3>
         <h4>{{ film.original_title }}</h4> 
         <p>{{ film.original_language }}</p>
