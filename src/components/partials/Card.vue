@@ -86,13 +86,11 @@ img {
     }
   }
   .hover-box{
+    position: absolute;
     cursor: pointer;
     opacity: 0;
-    position: absolute;
     top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
+    bottom:0;
     color: white;
     background-color: rgba(0, 0, 0, 0.897);
     padding: 16px;

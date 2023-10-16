@@ -35,13 +35,6 @@ export default {
 
 <style lang="scss" scoped>
 
-  img {
-    width: 30px;
-  }
-
-  .poster img {
-    width: 300px;
-  }
  
 
 </style>
