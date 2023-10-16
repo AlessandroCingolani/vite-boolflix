@@ -12,7 +12,7 @@ export default {
 <template>
   <header class="d-flex align-items-center justify-content-between " >
     <img src="/public/img/logo-boolflix.png" alt="">
-    <SearchBar @keyup.enter="$emit('researchFilm')"/>
+    <SearchBar @keyup.enter="$emit('research')"/>
   </header>
 </template>
 

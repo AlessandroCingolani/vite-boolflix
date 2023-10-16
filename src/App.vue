@@ -19,7 +19,7 @@
       getFilm(){
         axios.get(`${store.apiUrl}/3/search/movie?${store.api_key}`,{
           params:{
-            query:store.searchFilm
+            query:store.search
           }
         })
         .then(result =>{
@@ -37,7 +37,7 @@
 
   </script>
 <template>
-  <Header @researchFilm="getFilm" />
+  <Header @research="getFilm" />
   <Main/>
 </template>
 
