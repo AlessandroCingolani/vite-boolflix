@@ -6,6 +6,7 @@ export const store = reactive({
   language:'it-IT',
   imgPath:'http://image.tmdb.org/t/p/w342/',
   search: '',
+  option:'',
   movie:[],
   tv:[]
 })
