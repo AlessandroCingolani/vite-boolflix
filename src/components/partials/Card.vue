@@ -7,8 +7,7 @@ export default {
   },
   data(){
     return{
-      store,
-      rating:[]
+      store
     }
   },
   methods:{
