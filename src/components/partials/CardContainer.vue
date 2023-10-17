@@ -6,6 +6,10 @@ export default {
   components:{
     Card
   },
+  props:{
+    title:String,
+    type:String
+  },
   data() {
     return {
       store
@@ -16,18 +20,10 @@ export default {
 </script>
 
 <template>
-  <div class="container">
-    <div v-if="store.movie.length > 0" class="film">
-      <h1>Film</h1>
-      <div class="row">
-        <Card v-for="card in store.movie" :key="card.id" :cardObj="card"/>
-      </div>
-    </div>
-    <div v-if="store.tv.length > 0" class="series">
-      <h1>Series</h1>
-      <div class="row">
-        <Card v-for="card in store.tv" :key="card.id" :cardObj="card"/>
-      </div>
+  <div class="container">  
+    <h1>{{ title }}</h1>
+    <div class="row">
+      <Card v-for="card in store[type]" :key="card.id" :cardObj="card"/>
     </div>
   </div>
 </template>
