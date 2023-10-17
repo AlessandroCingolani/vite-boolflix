@@ -25,9 +25,5 @@ export default {
 
 
 <style lang="scss" scoped>
-@use '../../scss/partials/vars' as *;
 
-main {
-  background-color: $background-main;
-}
 </style>
