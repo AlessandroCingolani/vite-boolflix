@@ -77,9 +77,10 @@ export default {
     position: relative;
     overflow: hidden;
     .poster{
+      height: 100%;
       img{
         width: 100%;
-        height: auto;
+        height: 100%;
         object-fit: cover;
       }
     }
