@@ -26,14 +26,23 @@
         })
         .then(result =>{
           store[type] = result.data.results
+          console.log(store.option);
         })
         .catch(error => {
           console.log(error);
         })
       },
       startSearch(){
-        this.getApi('movie')
-        this.getApi('tv')
+        if(store.option === 'movie'){
+          store.tv = []
+          this.getApi('movie')
+        }else if (store.option === 'tv'){
+          store.movie = []
+          this.getApi('tv')
+        }else{
+          this.getApi('movie')
+          this.getApi('tv')
+        }
       }
   
     },
