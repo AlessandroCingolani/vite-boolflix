@@ -26,7 +26,6 @@
         })
         .then(result =>{
           store[type] = result.data.results
-          console.log(store.option);
         })
         .catch(error => {
           console.log(error);
