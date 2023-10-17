@@ -16,39 +16,30 @@
       }
     },
     methods:{
-      getFilm(){
-        axios.get(`${store.apiUrl}/3/search/movie?${store.api_key}`,{
+      getApi(type){
+        axios.get(store.apiUrl + type,{
           params:{
-            query:store.search
+            api_key:store.api_key,
+            query:store.search,
+            language:store.language
           }
         })
         .then(result =>{
-          store.listFilm = result.data.results
-          this.getSeries()
+          store[type] = result.data.results
         })
         .catch(error => {
           console.log(error);
         })
       },
-
-      getSeries(){
-        axios.get(`${store.apiUrl}/3/search/tv?${store.api_key}&language=it_IT`,{
-          params:{
-            query:store.search
-          }
-        })
-        .then(result =>{
-          store.listSeries = result.data.results
-        })
-        .catch(error => {
-          console.log(error);
-        })
+      startSearch(){
+        this.getApi('movie')
+        this.getApi('tv')
       }
+  
     },
 
     mounted(){
-      this.getFilm(),
-      this.getSeries()
+    
     },
 
   }
@@ -56,7 +47,7 @@
 
   </script>
 <template>
-  <Header @research="getFilm" />
+  <Header @research="startSearch" />
   <Main/>
 </template>
 
