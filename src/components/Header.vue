@@ -1,9 +1,15 @@
 <script>
+import { store } from '../data/store'
 import SearchBar from './partials/SearchBar.vue';
 export default {
   name:'Header',
   components:{
     SearchBar
+  },
+  data(){
+    return{
+      store
+    }
   }
 }
 </script>
@@ -12,7 +18,19 @@ export default {
 <template>
   <header class="d-flex align-items-center justify-content-between " >
     <img src="/public/img/logo-boolflix.png" alt="">
-    <SearchBar @keyup.enter="$emit('research')"/>
+
+    <div class="research d-flex">
+      <SearchBar @keyup.enter="$emit('research')"/>
+      <select 
+      @change="$emit('research')"
+      v-model="store.option"
+      class="form-select ms-3 me-3 ">
+        <option value="">All</option>
+        <option value="movie">Movie</option>
+        <option value="tv">Series</option>
+      </select>
+
+    </div>
   </header>
 </template>
 
@@ -31,5 +49,8 @@ export default {
       height: 24px;
       margin-right: 10px;
     }
+    .form-select {
+    width: 100px;
+  }
   }
 </style>
