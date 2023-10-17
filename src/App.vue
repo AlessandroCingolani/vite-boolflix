@@ -47,7 +47,7 @@
 
   </script>
 <template>
-  <Header @research="startSearch" />
+  <Header @research="startSearch"/>
   <Main/>
 </template>
 
