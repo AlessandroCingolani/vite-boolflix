@@ -22,7 +22,7 @@ export default {
     <div class="research d-flex">
       <SearchBar @keyup.enter="$emit('research')"/>
       <select 
-      @change="$emit('research')"
+      @select="$emit('research')"
       v-model="store.option"
       class="form-select ms-3 me-3 ">
         <option value="">All</option>
