@@ -17,16 +17,16 @@ export default {
 
 <template>
   <div class="container">
-    <div v-if="store.listFilm.length > 0" class="film">
+    <div v-if="store.movie.length > 0" class="film">
       <h1>Film</h1>
       <div class="row">
-        <Card v-for="card in store.listFilm" :key="card.id" :cardObj="card"/>
+        <Card v-for="card in store.movie" :key="card.id" :cardObj="card"/>
       </div>
     </div>
-    <div v-if="store.listSeries.length > 0" class="series">
+    <div v-if="store.tv.length > 0" class="series">
       <h1>Series</h1>
       <div class="row">
-        <Card v-for="card in store.listSeries" :key="card.id" :cardObj="card"/>
+        <Card v-for="card in store.tv" :key="card.id" :cardObj="card"/>
       </div>
     </div>
   </div>

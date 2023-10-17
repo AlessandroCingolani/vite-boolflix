@@ -48,15 +48,12 @@ export default {
           <img class="flag" v-if="cardObj.original_language.includes('it')" src="/public/img/it.png" alt="it">
           <p> {{ checkLanguage(cardObj) }}</p>
           
-
-            <span>
-              Voto:
-              <i v-for="n in 5" :key="n" 
-              :class="{'fa-solid fa-star': n <= calcRating(cardObj.vote_average), 'fa-regular fa-star': n > calcRating(cardObj.vote_average)}">
-              </i>  
-            </span>
-
-
+          <span>
+            Voto:
+            <i v-for="n in 5" :key="n" 
+            :class="{'fa-solid fa-star': n <= calcRating(cardObj.vote_average), 'fa-regular fa-star': n > calcRating(cardObj.vote_average)}">
+            </i>  
+          </span>
         </div>
   
         <div class="overview">Overview: {{ cardObj.overview }}</div>
@@ -71,21 +68,18 @@ export default {
 <style lang="scss" scoped>
 
 
-.flag  {
-    width: 30px;
-  }
+
   .col-3 {
     padding: 10px;
     .card{
     height: 100%;
     position: relative;
     overflow: hidden;
-  
     .poster{
       img{
-        height: 100%;
         width: 100%;
         object-fit: cover;
+
       }
     }
     .hover-box{
@@ -105,6 +99,9 @@ export default {
         opacity: 1;
       }
       
+      .flag  {
+        width: 30px;
+      }
      
       .overview {
         height: 50%;
