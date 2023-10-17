@@ -17,8 +17,14 @@ export default {
 
 <template>
   <main>
-    <CardContainer v-if="store.movie.length > 0" title="Film" type="movie"/>
-    <CardContainer v-if="store.tv.length > 0" title="Series" type="tv"/>
+    <div v-if="store.movie.length > 0 || store.tv.length > 0">
+      <CardContainer v-if="store.movie.length > 0" title="Film" type="movie"/>
+      <CardContainer v-if="store.tv.length > 0" title="Series" type="tv"/>
+    </div>
+
+    <div class="container text-center" v-else>
+      <h3>Effettua una ricerca</h3>
+    </div>
   </main>
 </template>
 
