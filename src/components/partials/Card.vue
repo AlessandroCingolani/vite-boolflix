@@ -17,6 +17,7 @@ export default {
       }
     },
     calcRating(rating){
+      // calcolo da valutazione 1 a 10 decimale a 1 a 5 intero
       const stars = Math.floor((rating - 1) / 2) + 1;
 
       return stars;
@@ -37,6 +38,7 @@ export default {
       <div class="hover-box d-flex flex-column justify-content-evenly ">
 
         <div class="top-hidden">
+          <!-- Se è .title prende quello oppure prende .name -->
           <h6>Titolo :	{{ cardObj.title || cardObj.name }}</h6>
          
           <h6>Titolo originale:	{{ cardObj.original_title || cardObj.original_name }}</h6>
@@ -77,11 +79,12 @@ export default {
     .poster{
       img{
         width: 100%;
+        height: auto;
         object-fit: cover;
-
       }
     }
     .hover-box{
+      
       position: absolute;
       cursor: pointer;
       opacity: 0;
@@ -95,6 +98,7 @@ export default {
       
   
       &:hover{
+        transition: all 0.3s;
         opacity: 1;
       }
       
