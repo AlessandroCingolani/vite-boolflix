@@ -42,12 +42,14 @@ export default {
          
           <h6>Titolo originale:	{{ cardObj.original_title || cardObj.original_name }}</h6>
           
+          <!-- imposto con includes flag inglese o ita -->
           <img class="flag" v-if="cardObj.original_language.includes('en')" src="/public/img/en.png" alt="en">
           <img class="flag" v-if="cardObj.original_language.includes('it')" src="/public/img/it.png" alt="it">
           <p> {{ checkLanguage(cardObj) }}</p>
           
           <span>
             Voto:
+            <!-- for n ripetuto 5 volte secondo il calcolo della funzione bindo classe stella piena fino al rating minore uguale senno la metto vuota -->
             <i v-for="n in 5" :key="n" 
             :class="{'fa-solid fa-star': n <= calcRating(cardObj.vote_average), 'fa-regular fa-star': n > calcRating(cardObj.vote_average)}">
             </i>  
