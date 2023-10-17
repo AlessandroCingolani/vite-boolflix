@@ -38,12 +38,10 @@ export default {
       <div class="hover-box d-flex flex-column justify-content-evenly ">
 
         <div class="top-hidden">
-          <h6 v-if="cardObj.title">Titolo :	{{ cardObj.title }}</h6>
-          <h6 v-else>Titolo	:	{{ cardObj.name }}</h6>
-
-          <h6 v-if="cardObj.original_title">Titolo originale:	{{ cardObj.original_title }}</h6>
-          <h6 v-else>Titolo originale	:	{{ cardObj.original_name }}</h6>
-
+          <h6>Titolo :	{{ cardObj.title || cardObj.name }}</h6>
+         
+          <h6>Titolo originale:	{{ cardObj.original_title || cardObj.original_name }}</h6>
+          
           <img class="flag" v-if="cardObj.original_language.includes('en')" src="/public/img/en.png" alt="en">
           <img class="flag" v-if="cardObj.original_language.includes('it')" src="/public/img/it.png" alt="it">
           <p> {{ checkLanguage(cardObj) }}</p>
