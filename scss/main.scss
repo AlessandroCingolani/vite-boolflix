@@ -1,4 +1,7 @@
 @use './partials/vars' as *;
-@use './partials/general' as * ;
 
 @import 'bootstrap/scss/bootstrap';
+
+body {
+  background-color: $background-main;
+}
