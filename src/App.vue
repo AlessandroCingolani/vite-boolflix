@@ -32,15 +32,25 @@
         })
       },
       startSearch(){
+        store.noResult = false
         if(store.option === 'movie'){
           store.tv = []
           this.getApi('movie')
+          if(store.search.length > 0 && store.movie.length == 0 ){
+            store.noResult = true
+          }
         }else if (store.option === 'tv'){
           store.movie = []
           this.getApi('tv')
+          if(store.search.length > 0 && store.tv.length == 0 ){
+            store.noResult = true
+          }
         }else{
           this.getApi('movie')
           this.getApi('tv')
+          if(store.search.length > 0 && store.tv.length == 0 && store.movie.length == 0 ){
+            store.noResult = true
+          }
         }
       },
 

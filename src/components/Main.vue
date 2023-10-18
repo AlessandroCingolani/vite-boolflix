@@ -22,7 +22,8 @@ export default {
       <CardContainer v-if="store.tv.length > 0" title="Series" type="tv"/>
     </div>
 
-    <div  v-else>
+    <div v-else>
+      <p class="text-center" v-if="store.noResult">Nessun risultato nella ricerca</p>
       <CardContainer  title="Rated Film" type="trendMovies"/>
       <CardContainer  title="Rated Series" type="trendSeries"/>
     </div>
@@ -32,5 +33,9 @@ export default {
 
 
 <style lang="scss" scoped>
-
+  @use '../../scss/partials/vars' as *;
+  p {
+    font-size: 2rem;
+    color: $logo-color;
+  }
 </style>
