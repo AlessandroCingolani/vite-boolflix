@@ -44,15 +44,20 @@
         }
       },
 
-      getTrending(){
-        axios.get(store.apiTrendMovies,{
+      getTrending(type){
+        axios.get(store.apiTrend+type+'/week',{
           params:{
+            
             api_key:store.api_key,
             language:store.language
           }
         })
         .then(res =>{
-          store.trendMovies = res.data.results
+          if (type === 'movie'){
+            store.trendMovies = res.data.results
+          }else {
+            store.trendSeries = res.data.results
+          }
         })
         .catch(error => {
           console.log(error);
@@ -62,7 +67,9 @@
     },
 
     mounted(){
-      this.getTrending()
+      this.getTrending('movie')
+      this.getTrending('tv')
+
     },
 
   }
