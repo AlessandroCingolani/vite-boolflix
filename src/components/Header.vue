@@ -26,7 +26,7 @@ export default {
       v-model="store.option"
       class="form-select ms-3 me-3 ">
         <option value="">All</option>
-        <option value="movie">Movie</option>
+        <option value="movie">Movies</option>
         <option value="tv">Series</option>
       </select>
 
