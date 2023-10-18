@@ -23,8 +23,8 @@ export default {
     </div>
 
     <div  v-else>
-      <CardContainer  title="Rated Film" type="trendMovie"/>
-      <CardContainer  title="Rated Series" type="trendMovie"/>
+      <CardContainer  title="Rated Film" type="trendMovies"/>
+      <CardContainer  title="Rated Series" type="trendSeries"/>
     </div>
   </main>
 </template>
