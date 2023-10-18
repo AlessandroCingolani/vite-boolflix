@@ -33,7 +33,7 @@ export default {
     <div class="card">
       <div class="poster">
         <img v-if="cardObj.poster_path" :src="`${store.imgPath}${cardObj.poster_path}`" alt="">
-        <img v-else src="/public/img/image-not-found-scaled.png" alt="image-not-found">
+        <img v-else src="/img/image-not-found-scaled.png" alt="image-not-found">
       </div>
       <div class="hover-box d-flex flex-column justify-content-evenly ">
 
