@@ -46,6 +46,8 @@
             store.noResult = true
           }
         }else{
+          store.movie = []
+          store.tv = []
           this.getApi('movie')
           this.getApi('tv')
           if(store.search.length > 0 && store.tv.length == 0 && store.movie.length == 0 ){
