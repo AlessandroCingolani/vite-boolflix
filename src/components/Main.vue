@@ -22,8 +22,9 @@ export default {
       <CardContainer v-if="store.tv.length > 0" title="Series" type="tv"/>
     </div>
 
-    <div class="container text-center" v-else>
-      <h3>Effettua una ricerca</h3>
+    <div  v-else>
+      <CardContainer  title="Rated Film" type="trendMovie"/>
+      <CardContainer  title="Rated Series" type="trendMovie"/>
     </div>
   </main>
 </template>

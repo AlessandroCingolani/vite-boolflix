@@ -42,12 +42,28 @@
           this.getApi('movie')
           this.getApi('tv')
         }
-      }
+      },
+
+      getTrending(){
+        axios.get(store.apiTrendUrl,{
+          params:{
+            api_key:store.api_key,
+            language:store.language
+          }
+        })
+        .then(res =>{
+          store.trendMovie = res.data.results
+        })
+        .catch(error => {
+          console.log(error);
+        })
+      },
   
     },
 
     mounted(){
-    
+      this.getTrending()
+      console.log(store.trendMovie);
     },
 
   }
