@@ -67,12 +67,13 @@ export default {
 
 
 <style lang="scss" scoped>
-
+  @use '../../../scss/partials/vars' as *;
 
 
   .col-3 {
     padding: 10px;
     .card{
+    border:2px solid $logo-color;
     height: 100%;
     position: relative;
     overflow: hidden;
