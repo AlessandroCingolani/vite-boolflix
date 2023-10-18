@@ -8,6 +8,7 @@ export const store = reactive({
   imgPath:'http://image.tmdb.org/t/p/w342/',
   search: '',
   option:'',
+  noResult:false,
   trendMovies:[],
   trendSeries:[],
   movie:[],
