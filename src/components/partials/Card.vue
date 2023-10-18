@@ -39,7 +39,7 @@ export default {
 
         <div class="top-hidden">
           <!-- Se è .title prende quello oppure prende .name -->
-          <h6>Titolo :	{{ cardObj.title || cardObj.name }}</h6>
+          <h6>Titolo:	{{ cardObj.title || cardObj.name }}</h6>
          
           <h6>Titolo originale:	{{ cardObj.original_title || cardObj.original_name }}</h6>
           
